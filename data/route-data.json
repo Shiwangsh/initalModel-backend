@@ -1,0 +1,230 @@
+// https://goo.gl/maps/sKoLmSbtogAPQL7y9
+
+{
+  "routeName": "NAC to Budhanilkhanta",
+  "stops": [
+    {
+      "name": "NAC bus Stop",
+      "number": 1,
+      "distance": 773,
+      "latitude": 27.702467493132218, 
+      "longitude": 85.31357284229802
+    },
+    {
+      "name": "Kanti Path Bus Stop",
+      "number": 2,
+      "distance": 1440,
+      "latitude": 27.709363569744117, 
+      "longitude": 85.31460281056873
+    },
+    {
+      "name": "Lazimpat",
+      "number": 3,
+      "distance": 913,
+      "latitude": 27.718110025312548, 
+      "longitude": 85.31710329337783
+    },
+    {
+      "name": "Panipokhari",
+      "number": 4,
+      "distance": 931,
+      "latitude": 27.729935478818692,
+      "longitude":  85.32512517923298
+    },
+    {
+      "name": "Maharajgunj",
+      "number": 5,
+      "distance": 884,
+      "latitude": 27.721208225702693,
+      "longitude": 85.31977679742275,
+    },
+    {
+      "name": "Chakrapath",
+      "number": 6,
+      "distance": 905,
+      "latitude": 27.739418710182512,
+      "longitude": 85.33649880343154
+    },
+    {
+      "name": "Bansbari",
+      "number": 7,
+      "distance": 710,
+      "latitude": 27.742713706307146, 
+      "longitude": 85.33962089470332
+    },
+    {
+      "name": "Golfutar",
+      "number": 8,
+      "distance": 2680,
+      "latitude": 27.751173279145824, 
+      "longitude": 85.34578330510786
+    },
+      {
+      "name": "Rudreshwor Chowk",
+      "number": 9,
+      "distance": 870,
+      "latitude": 27.771461744003116, 
+      "longitude": 85.3586793660789
+    },  {
+      "name": "Budhanilkhanta",
+      "number": 10,
+      "distance": 0,
+      "latitude": 27.777973757641202, 
+      "longitude": 85.36110408299893
+    }
+  ]
+}
+
+
+
+
+
+{
+  "stops": [
+    {
+      "name": "Stop number 1",
+      "number": 1,
+      "distance": 773,
+      "longitude": "27.70273195915366",
+      "latitude": "85.31352902625821"
+    },
+    {
+      "number": 2,
+      "distance": 1440,
+      "longitude": "27.709405074115825",
+      "latitude": "85.31461635732036"
+    },
+    {
+      "number": 3,
+      "distance": 594,
+      "longitude": "27.721088910236666",
+      "latitude": "85.31977407573875"
+    },
+    {
+      "number": 4,
+      "distance": 931,
+      "longitude": "27.718225294052292",
+      "latitude": "85.3170122495353"
+    },
+    {
+      "number": 5,
+      "distance": 884,
+      "longitude": "27.721208225702693",
+      "latitude": "85.31977679742275"
+    },
+    {
+      "number": 6,
+      "distance": 905,
+      "longitude": "27.728870316443274",
+      "latitude": "85.32487088913487"
+    },
+    {
+      "number": 7,
+      "distance": 718,
+      "longitude": "27.73405654854865",
+      "latitude": "85.32996418580198"
+    },
+    {
+      "name": "Teaching hostpital bus stop",
+      "number": 8,
+      "distance": 1740,
+      "longitude": "27.735496010642905",
+      "latitude": "85.33168328433204"
+    },
+    {
+      "name": "Chaktapath",
+      "number": 9,
+      "distance": 0,
+      "longitude": "27.735496010642905",
+      "latitude": "85.33168328433204"
+    }
+    {
+      "name":
+    }
+  ]
+}
+
+,
+{
+    "routeName":"Chakrapath to Swayambhu",
+   
+    "stops": [
+    {
+      "name": "Chakrapath",
+      "number": 1,
+      "distance": "402",
+      "latitude": 27.740047000812886,
+      "longitude": 85.33699822195918
+    },
+    {
+      "name": "Basundhara",
+      "number": 2,
+      "distance": 1000,
+      "latitude": 27.741842801431932,
+      "longitude": 85.33341363244867
+    },
+    {
+      "name": "Chauki",
+      "number": 3,
+      "distance": 750,
+      "latitude": 27.73803360688135,
+      "longitude": 85.32524444279446
+    },
+    {
+      "name": "Samakhusi Chowk",
+      "number": 4,
+      "distance": 350,
+      "latitude": 27.735042534905986,
+      "longitude": 85.31814119356774
+    },
+    {
+      "name": "Gongabu Chowk",
+      "number": 5,
+      "distance": 900,
+      "latitude": 27.734890681905124,
+      "longitude": 85.31456627809035
+    },
+    {
+      "name": "Bus park",
+      "number": 6,
+      "distance": 1000,
+      "latitude": 27.734979253109966,
+      "longitude": 85.30576383981466
+    },
+    {
+      "name": "Balaju",
+      "number": 7,
+      "distance": 700,
+      "latitude": 27.72675244077988,
+      "longitude": 85.30410928702277
+    },
+    {
+      "name": "Banasthali",
+      "number": 8,
+      "distance": 950,
+      "latitude": 27.72470403025484,
+      "longitude": 85.29760991635334
+    },
+    {
+      "name": "Sano bharyang",
+      "number": 9,
+      "distance": 270,
+      "latitude": 27.720685365001362,
+      "longitude": 85.28915432180747
+    },
+    {
+      "name": "Thulo bharyang",
+      "number": 10,
+      "distance": 550,
+      "latitude": 27.719516965090843,
+      "longitude": 85.28675025078118
+    },
+    {
+      "name": "Showyambhu",
+      "number": 11,
+      "distance": 0,
+      "latitude": 27.716237389923904,
+      "longitude": 85.28361869590044
+    }
+  ]
+}

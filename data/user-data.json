@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Test Bahadur senior",
+    "address": "Basundhara",
+    "contactNumber": 9869696969,
+    "email": "email@example.com",
+    "password": "password",
+    "userType": "Senior Citizen"
+  },
+
+  {
+    "name": "Test Bahadur junior",
+    "address": "Dhapasi",
+    "contactNumber": 987958645,
+    "email": "email@email.com",
+    "password": "password",
+    "userType": "Student"
+  },
+  {
+    "name": "Mrs. Test Bahadur senior",
+    "address": "Basundhara",
+    "contactNumber": 986923102,
+    "email": "email@email.com",
+    "password": "password",
+    "userType": "Adult"
+  },
+  {
+    "name": "Mrs. Test Bahadur junior",
+    "address": "Basundhara",
+    "contactNumber": 5321456459,
+    "email": "email@email.com",
+    "password": "password",
+    "userType": "Student"
+  },
+  {
+    "name": "Saktiman",
+    "address": "Saktishwor",
+    "contactNumber": 9869696969,
+    "email": "email@email.com",
+    "password": "password",
+    "userType": "Adult"
+  }
+]
