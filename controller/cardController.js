@@ -4,7 +4,6 @@ const Payment = require("./../models/payment_model");
 const Ticket = require("./../models/ticket_model");
 const Transaction = require("./../models/transaction_model");
 const Bus = require("./../models/bus_model");
-const Route = require("./../models/route_model");
 const catchAsync = require("../utils/catchAsync");
 const factoryController = require("./factoryController");
 
@@ -79,22 +78,41 @@ exports.tap = catchAsync(async (req, res) => {
     type: "Ticket",
   });
   if (transaction) {
-    editTransaction(card, route, transaction, firstStop, lastStop).then(
-      (response) => {
-        res.status(200).json({
-          status: "success Travel Ended🚋💸",
-          data: {
-            transaction: response.transaction,
-            ticket: response.ticket,
-          },
-        });
-      }
-    );
+    const transactionTime = transaction.createdAt.getTime();
+    const expiryTime = transactionTime + 1 * 60 * 1000;
+    const currentTime = new Date().getTime();
+    console.log("Current Time->", currentTime);
+    console.log("Created Time->", transactionTime, "Expiry Time->", expiryTime);
+    currentTime > expiryTime
+      ? deductMax(transaction, card).then(() => {
+          createTransaction(cardID, route.routeName, firstStop).then(
+            (response) => {
+              res.status(200).json({
+                status:
+                  "Success! Travel started with max amount decuted for previous travel because you forgot to tap on your exit dummy and created a new Transaction🚋💸✅🚋✅",
+                data: {
+                  transaction: response.newTransaction,
+                  ticket: response.newTicket,
+                },
+              });
+            }
+          );
+        })
+      : editTransaction(card, route, transaction, firstStop, lastStop).then(
+          (response) => {
+            res.status(200).json({
+              status: "Success! Travel Ended🚋💸✅",
+              data: {
+                transaction: response.transaction,
+                ticket: response.ticket,
+              },
+            });
+          }
+        );
   } else {
     createTransaction(cardID, route.routeName, firstStop).then((response) => {
-      console.log(response);
       res.status(200).json({
-        status: "Success Travel started🚋",
+        status: "Success! Travel started🚋✅",
         data: {
           transaction: response.newTransaction,
           ticket: response.newTicket,
@@ -112,6 +130,25 @@ const cardCheck = (card) => {
   return;
 };
 
+const deductMax = async (transaction, card) => {
+  card.balance = card.balance - process.env.MAX_BALANCE_DEDUCT;
+  card.save();
+  transaction.status = "Closed";
+  transaction.save();
+  // update Ticket
+  const ticket = await Ticket.findOne(
+    { transaction: transaction._id }
+    // {
+    //   amount: process.env.MAX_BALANCE_DEDUCT,
+    //   lastStop: null,
+    // }
+  );
+  ticket.amount = process.env.MAX_BALANCE_DEDUCT;
+  ticket.lastStop = null;
+  ticket.save();
+  return { ticket, transaction };
+};
+
 const editTransaction = async (
   card,
   route,
@@ -125,12 +162,12 @@ const editTransaction = async (
     }
     return stop.number < firstStop && stop.number >= lastStop;
   });
-  console.log(userRoute);
+  // console.log(userRoute);
 
   const totalDistance = userRoute
     .map((item) => item.distance)
     .reduce((prev, curr) => prev + curr, 0);
-  console.log(totalDistance);
+  // console.log(totalDistance);
 
   const amount = (totalDistance / 1000) * process.env.STD_FARE_PER_KM;
 
@@ -141,13 +178,16 @@ const editTransaction = async (
   transaction.save();
 
   // update Ticket
-  const ticket = await Ticket.findOneAndUpdate(
-    { transaction: transaction._id },
-    {
-      amount: amount,
-      lastStop: lastStop,
-    }
+  const ticket = await Ticket.findOne(
+    { transaction: transaction._id }
+    // {
+    //   amount: amount,
+    //   lastStop: lastStop,
+    // }
   );
+  ticket.amount = amount;
+  ticket.lastStop = lastStop;
+  ticket.save();
   return { ticket, transaction };
 };
 

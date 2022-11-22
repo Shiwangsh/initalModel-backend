@@ -33,8 +33,6 @@ exports.initialTap = catchAsync(async (req, res, next) => {
   const card = await Card.findOne({
     uuid: cardID,
   }).populate("user");
-  // console.log("caard/;", card.user.active);
-
   if (!card) {
     return next(new ApiError("Invalid card", 500));
   }
@@ -72,7 +70,6 @@ exports.finalTap = catchAsync(async (req, res, next) => {
   const route = await Route.findById(routeID);
   const card = await Card.findOne({ uuid: cardID });
 
-  // console.log(transaction.status);
   if (!card) next(new ApiError("Card is invalid", 401));
   if (!route) next(new ApiError("Route is invalid", 401));
   const transaction = await Transaction.findOne({
@@ -99,7 +96,6 @@ exports.finalTap = catchAsync(async (req, res, next) => {
 
   // Calculate amount
   const amount = (totalDistance / 1000) * process.env.STD_FARE_PER_KM;
-  // console.log(`Rs${amount}`);
 
   // Deduct amount
   card.balance = card.balance - amount;
@@ -129,9 +125,7 @@ exports.finalTap = catchAsync(async (req, res, next) => {
 
 /* 
 *
-*
 LOGIN
-*
 *
 */
 
@@ -186,8 +180,6 @@ exports.protect = catchAsync(async (req, res, next) => {
   ) {
     token = req.headers.authorization.split(" ")[1];
   }
-  //   console.log(token);
-
   if (!token) {
     {
       return next(
