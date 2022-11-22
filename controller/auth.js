@@ -33,7 +33,7 @@ exports.initialTap = catchAsync(async (req, res, next) => {
   const card = await Card.findOne({
     uuid: cardID,
   }).populate("user");
-  console.log("caard/;", card.user.active);
+  // console.log("caard/;", card.user.active);
 
   if (!card) {
     return next(new ApiError("Invalid card", 500));
@@ -64,16 +64,6 @@ exports.initialTap = catchAsync(async (req, res, next) => {
 });
 
 exports.finalTap = catchAsync(async (req, res, next) => {
-  /*  
-  *CALCULATES DISPLACEMENT OFF THE PROVIDED LAT&LONG
-  const { cardID, longitude1, latitude1, longitude2, latitude2 } = req.body;
-  const distance = getDistanceFromLatLonInKm(
-    [longitude1, latitude1],
-    [longitude2, latitude2]
-    );
-    console.log(distance);
-    */
-
   const { cardID, routeID, firstStop, lastStop } = req.body;
   /*
    * Query the database to find the distance between the initial and final stop

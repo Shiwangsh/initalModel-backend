@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const short = require("short-uuid");
-const { db } = require("./user_model");
 
 const cardSchema = new mongoose.Schema(
   {
@@ -26,7 +25,22 @@ const cardSchema = new mongoose.Schema(
       unique: true,
     },
   },
-  { timestamps: true }
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+    timestamps: true,
+  }
 );
+
+//Transaction Virtual Property
+// cardSchema.virtual("balanceUpdated").get(function () {
+//   return +this.balance.toFixed(1);
+// });
+
+cardSchema.virtual("transactions", {
+  ref: "Transaction",
+  foreignField: "card",
+  localField: "uuid",
+});
 
 module.exports = mongoose.model("Card", cardSchema);

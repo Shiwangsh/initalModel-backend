@@ -20,7 +20,7 @@ const staffSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please enter password"],
       minlength: 8,
-      // select: false,
+      select: false,
     },
     address: {
       type: String,
@@ -35,6 +35,10 @@ const staffSchema = new mongoose.Schema(
     staffType: {
       type: String,
       enum: ["Admin", "Level1", "Level2"],
+    },
+    active: {
+      type: Boolean,
+      default: true,
     },
   },
   { timestamps: true }

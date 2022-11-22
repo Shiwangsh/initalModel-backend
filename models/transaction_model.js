@@ -15,7 +15,21 @@ const transactionSchema = new mongoose.Schema(
       enum: ["Load Balance", "Ticket"],
     },
   },
-  { timestamps: true }
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+    timestamps: true,
+  }
 );
 
+transactionSchema.virtual("ticket", {
+  ref: "Ticket",
+  foreignField: "transaction",
+  localField: "_id",
+});
+transactionSchema.virtual("payment", {
+  ref: "Payment",
+  foreignField: "transaction",
+  localField: "_id",
+});
 module.exports = mongoose.model("Transaction", transactionSchema);

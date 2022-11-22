@@ -1,29 +1,12 @@
 const User = require("./../models/user_model");
 const Card = require("./../models/card_model");
-const catchAsync = require("../utils/catchAsync");
-const ApiError = require("../error/ApiError");
-const APIFeatures = require("../utils/apiFeatures");
+const factoryController = require("./factoryController");
 
-exports.getAllUsers = catchAsync(async (req, res) => {
-  // const page = parseInt(req.query.page) - 1 || 0;
-  // const limit = parseInt(req.query.limit) || 10;
-  const search = req.query.search || "";
-  console.log(req.query);
-  const features = new APIFeatures(
-    User.find({ name: { $regex: search, $options: "i" } }),
-    req.query
-  )
-    .filter()
-    .sort();
-
-  const users = await features.query;
-  res.status(200).json({
-    status: "Success",
-    result: users.length,
-    users,
-  });
-});
-
+exports.getAllUsers = factoryController.getAll(User);
+exports.getUser = factoryController.getOne(User);
+exports.updateUser = factoryController.updateOne(User);
+exports.deleteUser = factoryController.deleteOne(User);
+exports.toggleActive = factoryController.toggleActive(User);
 exports.createUser = async (req, res) => {
   try {
     console.log(req.body);
@@ -54,60 +37,12 @@ exports.createUser = async (req, res) => {
     });
   }
 };
-exports.getUser = async (req, res) => {
-  try {
-    const user = await User.findById(req.params.id);
-    res.status(201).json({
-      status: "success",
-      user,
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: "fail",
-      message: err,
-    });
-  }
-};
-
-exports.updateUser = async (req, res) => {
-  try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-    res.status(200).json({
-      status: "success",
-      user,
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: "fail",
-      message: "Invalid data sent!😥",
-    });
-  }
-};
-
-exports.toggleActive = async (req, res) => {
-  try {
-    const user = await User.findByIdAndUpdate(req.params.id, [
-      { $set: { active: { $not: "$active" } } },
-    ]);
-    res.status(200).json({
-      status: "success",
-      data: user,
-    });
-  } catch {
-    res.status(400).json({
-      status: "error",
-      message: "No no why send wrong data",
-    });
-  }
-};
 
 exports.deleteUser = async (req, res) => {
   try {
     console.log(req.params.id);
     await User.findByIdAndDelete(req.params.id);
+    await Card.findOneAndDelete({ user: req.params.id });
     res.status(204).json({
       status: "success",
       data: null,
