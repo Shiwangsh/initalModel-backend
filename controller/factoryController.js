@@ -98,7 +98,6 @@ exports.deleteOne = (Model) =>
 
 exports.toggleActive = (Model) =>
   catchAsync(async (req, res, next) => {
-    console.log(req.params.id);
     await Model.findByIdAndUpdate(req.params.id, [
       { $set: { active: { $not: "$active" } } },
     ]);

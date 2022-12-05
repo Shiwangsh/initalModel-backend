@@ -228,3 +228,388 @@
     }
   ]
 }
+
+
+{
+    "routeName":"Thankot to Budhanilkhanta",
+       
+     "stops": [
+    {
+      "name": "Thankot",
+      "number": 1,
+      "distance":1700 ,
+      "latitude": 27.696735657019087, 
+      "longitude": 85.21471489219488
+    },
+    {
+      "name": "Checkpost",
+      "number": 2,
+      "distance": 1200,
+      "latitude": 27.689033687731413, 
+      "longitude": 85.22740710156155
+    },
+    {
+      "name": "Telecom",
+      "number": 3,
+      "distance": 1300,
+      "latitude": 27.68830072374016, 
+      "longitude": 85.23895288812132
+    },
+    {
+      "name": "Satungal",
+      "number": 4,
+      "distance": 1400,
+      "latitude": 27.687027059095428, 
+      "longitude": 85.25129910690033
+    },
+    {
+      "name": "Naikap",
+      "number": 5,
+      "distance": 1200,
+      "latitude": 27.68710720129244, 
+      "longitude": 85.26502164472518
+    },
+    {
+      "name": "Dhungeadda",
+      "number": 6,
+      "distance": 710,
+      "latitude": 27.691478131639467,
+      "longitude":  85.27561209773513 
+    },
+    {
+      "name": "Kalanki",
+      "number": 7,
+      "distance": 1500,
+      "latitude": 27.69395770935525, 
+      "longitude": 85.28144816776809
+    },
+      {
+      "name": "Sitapaila",
+      "number": 8,
+      "distance": 1000,
+      "latitude": 27.707642712944025, 
+      "longitude": 85.28258563773356 
+    },  {
+      "name": "Swayambhu",
+      "number": 9,
+      "distance": 550,
+      "latitude": 27.71661412079472, 
+      "longitude": 85.28340435152538 
+    },    {
+      "name": "Thulo bharyang",
+      "number": 10,
+      "distance": 270,
+      "latitude": 27.719516965090843,
+      "longitude": 85.28675025078118
+    },  {
+      "name": "Sano bharyang",
+      "number": 11,
+      "distance": 1000,
+      "latitude": 27.720685365001362,
+      "longitude": 85.28915432180747
+    }, {
+      "name": "Banasthali",
+      "number": 12,
+      "distance": 700,
+      "latitude":27.725070083401985, 
+      "longitude": 85.29821622489033
+    },  {
+      "name": "Balaju",
+      "number": 13,
+      "distance":1300,
+      "latitude": 27.72725751607899,
+      "longitude":  85.30476710004028
+    },  {
+      "name": "Nanya Bus Park",
+      "number": 14,
+      "distance": 550,
+      "latitude": 27.73500007649896, 
+      "longitude": 85.30923716318787
+    }, {
+      "name": "Gongabu Chowk",
+      "number": 15,
+      "distance": 350,
+      "latitude": 27.734890681905124,
+      "longitude": 85.31456627809035
+    }, {
+      "name": "Samakhusi",
+      "number": 16,
+      "distance": 750,
+      "latitude": 27.73520690267061,
+      "longitude": 85.31811312383931
+    }, {
+      "name": "Chauki",
+      "number": 17,
+      "distance": 1000,
+      "latitude": 27.73803360688135,
+      "longitude": 85.32524444279446
+    },
+    {
+      "name": "Basundhara",
+      "number": 18,
+      "distance": 402,
+      "latitude": 27.741842801431932,
+      "longitude": 85.33341363244867
+    }, {
+      "name": "Narayangopal CHowk",
+      "number": 19,
+      "distance": 800,
+      "latitude": 27.739983229178243, 
+      "longitude": 85.33709908068654
+    },  {
+      "name": "Gangalal Hospital",
+      "number": 20,
+      "distance":450,
+      "latitude": 27.74569745383977,
+      "longitude":  85.34234028671455
+    },  {
+      "name": "Neuro Hospital",
+      "number": 21,
+      "distance": 500,
+      "latitude": 27.748624985024637, 
+      "longitude": 85.34534123498578 
+    },  {
+      "name": "Golfutar",
+      "number": 22,
+      "distance": 2700,
+      "latitude": 27.752201203063382, 
+      "longitude": 85.34640665012016
+    },  {
+      "name": "Deuba Chowk",
+      "number": 23,
+      "distance": 400,
+      "latitude":27.774899578946506, 
+      "longitude": 85.36097335225242
+    },  {
+      "name": "Budhanilkhanta",
+      "number": 24,
+      "distance": 0,
+      "latitude": 27.77787327821947, 
+      "longitude": 85.36104736021025
+    }
+  ]
+}
+
+{
+    "routeName":"Thankot to Tribhuvan Airport",
+   
+     "stops": [
+    {
+      "name": "Thankot",
+      "number": 1,
+      "distance":1700 ,
+      "latitude": 27.696735657019087, 
+      "longitude": 85.21471489219488
+    },
+    {
+      "name": "Checkpost",
+      "number": 2,
+      "distance": 1200,
+      "latitude": 27.689033687731413, 
+      "longitude": 85.22740710156155
+    },
+    {
+      "name": "Telecom",
+      "number": 3,
+      "distance": 1300,
+      "latitude": 27.68830072374016, 
+      "longitude": 85.23895288812132
+    },
+    {
+      "name": "Satungal",
+      "number": 4,
+      "distance": 1400,
+      "latitude": 27.687027059095428, 
+      "longitude": 85.25129910690033
+    },
+    {
+      "name": "Naikap",
+      "number": 5,
+      "distance": 1200,
+      "latitude": 27.68710720129244, 
+      "longitude": 85.26502164472518
+    },
+    {
+      "name": "Dhungeadda",
+      "number": 6,
+      "distance": 710,
+      "latitude": 27.691478131639467,
+      "longitude":  85.27561209773513 
+    },
+    {
+      "name": "Kalanki",
+      "number": 7,
+      "distance": 2700,
+      "latitude": 27.69395770935525, 
+      "longitude": 85.28144816776809
+    },
+      {
+      "name": "Teku",
+      "number": 8,
+      "distance": 1300,
+      "latitude": 27.697249808014796, 
+      "longitude": 85.30456198491775 
+    },  {
+      "name": "Tripureshwor",
+      "number": 9,
+      "distance": 1200,
+      "latitude": 27.69502863492135, 
+      "longitude": 85.31401830769084
+    },  {
+      "name": "Ratnapark",
+      "number": 10,
+      "distance": 1400,
+      "latitude": 27.70601245375911, 
+      "longitude": 85.31416642221421
+    },  {
+      "name": "Singha Durbar",
+      "number": 11,
+      "distance":1300,
+      "latitude": 27.699235890015593, 
+      "longitude":  85.31789670362485
+    },  {
+      "name": "Maitighar",
+      "number": 12,
+      "distance": 1900,
+      "latitude": 27.69381389816561, 
+      "longitude":85.3213689179371
+    },  {
+      "name": "Bhaneshwor",
+      "number": 13,
+      "distance": 700,
+      "latitude": 27.68769131828746, 
+      "longitude": 85.33892336067593
+    },  {
+      "name": "Tinkune",
+      "number": 14,
+      "distance": 1500,
+      "latitude":27.686336215930957,
+      "longitude":  85.34574693515998 
+    },  {
+      "name": "Sinamangal",
+      "number": 15,
+      "distance":800,
+      "latitude":27.69536470988985, 
+      "longitude":  85.35493860552134
+    },  {
+      "name": "Tribhuvan International Airport",
+      "number": 16,
+      "distance": 0,
+      "latitude": 27.701145154244518, 
+      "longitude": 85.35335215804403 
+    }
+  ]
+}
+
+
+
+{
+    "routeName":"Lagankhel To Gongabu Buspark",
+   
+     "stops": [
+    {
+      "name": "Lagankhel",
+      "number": 1,
+      "distance":1200,
+      "latitude":27.66706662829485, 
+      "longitude": 85.32300195060783
+    },
+    {
+      "name": "Jawalakhel",
+      "number": 2,
+      "distance": 1200,
+      "latitude": 27.67249900877415,
+      "longitude": 85.31413439799002
+    },
+    {
+      "name": "Pulchowk",
+      "number": 3,
+      "distance": 1300,
+      "latitude": 27.68830072374016, 
+      "longitude": 85.23895288812132
+    },
+    {
+      "name": "Kupondole",
+      "number": 4,
+      "distance": 1400,
+      "latitude": 27.687027059095428, 
+      "longitude": 85.25129910690033
+    },
+    {
+      "name": "Tripureshword",
+      "number": 5,
+      "distance": 1200,
+      "latitude": 27.68710720129244, 
+      "longitude": 85.26502164472518
+    },
+    {
+      "name": "NAC",
+      "number": 6,
+      "distance": 710,
+      "latitude": 27.691478131639467,
+      "longitude":  85.27561209773513 
+    },
+    {
+      "name": "Jamal",
+      "number": 7,
+      "distance": 2700,
+      "latitude": 27.69395770935525, 
+      "longitude": 85.28144816776809
+    },
+      {
+      "name": "Lazimpat",
+      "number": 8,
+      "distance": 1300,
+      "latitude": 27.697249808014796, 
+      "longitude": 85.30456198491775 
+    },  {
+      "name": "Lainchaur",
+      "number": 9,
+      "distance": 1200,
+      "latitude": 27.69502863492135, 
+      "longitude": 85.31401830769084
+    },  {
+      "name": "Panipokhari",
+      "number": 10,
+      "distance": 1400,
+      "latitude": 27.70601245375911, 
+      "longitude": 85.31416642221421
+    },  {
+      "name": "Teaching Hospital",
+      "number": 11,
+      "distance":1300,
+      "latitude": 27.699235890015593, 
+      "longitude":  85.31789670362485
+    },  {
+      "name": "Narayan Gopal Chowk",
+      "number": 12,
+      "distance": 1900,
+      "latitude": 27.69381389816561, 
+      "longitude":85.3213689179371
+    },  {
+      "name": "Basundhara",
+      "number": 13,
+      "distance": 700,
+      "latitude": 27.68769131828746, 
+      "longitude": 85.33892336067593
+    },  {
+      "name": "Chauki",
+      "number": 14,
+      "distance": 1500,
+      "latitude":27.686336215930957,
+      "longitude":  85.34574693515998 
+    },  {
+      "name": "Samakhusi",
+      "number": 15,
+      "distance":800,
+      "latitude":27.69536470988985, 
+      "longitude":  85.35493860552134
+    },  {
+      "name": "Gongabu Buspark",
+      "number": 16,
+      "distance": 0,
+      "latitude": 27.701145154244518, 
+      "longitude": 85.35335215804403 
+    }
+  ]
+}

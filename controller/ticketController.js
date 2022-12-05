@@ -21,7 +21,6 @@ exports.getAllTickets = catchAsync(async (req, res) => {
 });
 
 exports.getTicketsFromCard = catchAsync(async (req, res, next) => {
-  console.log(req.params);
   const tickets = await Ticket.find({ transaction: req.params.id });
   if (!tickets) new ApiError("Invalid ID or card does not exist");
   res.status(201).json({

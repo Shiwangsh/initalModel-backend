@@ -21,6 +21,7 @@ const routeRoute = require("./routes/routeRoute");
 const ticketRoute = require("./routes/ticketRoute");
 const transactionRoute = require("./routes/transactionRoute");
 const paymentRoute = require("./routes/paymentRoute");
+const smartRoute = require("./routes/smartRoute");
 
 const DB = process.env.DATABASE.replace(
   "<PASSWORD>",
@@ -39,6 +40,7 @@ app.use("/routes", routeRoute);
 app.use("/tickets", ticketRoute);
 app.use("/transactions", transactionRoute);
 app.use("/payments", paymentRoute);
+app.use("/smartRoute", smartRoute);
 
 app.post("/login", authController.login);
 

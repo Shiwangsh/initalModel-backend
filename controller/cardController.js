@@ -9,10 +9,18 @@ const factoryController = require("./factoryController");
 
 exports.getAllCards = factoryController.getAll(Card);
 exports.createCard = factoryController.createOne(Card);
-// exports.getCard = factoryController.getOne(Card, { path: "user" });
 
 exports.getCard = catchAsync(async (req, res, next) => {
-  const card = await Card.findOne({ uuid: req.params.id }).populate("user");
+  const card = await Card.findOne({ uuid: req.params.id });
+  if (!card) next(new ApiError("Invalid ID or card does not exist"));
+  res.status(201).json({
+    status: "success",
+    card,
+  });
+});
+
+exports.getCardFromUser = catchAsync(async (req, res, next) => {
+  const card = await Card.findOne({ user: req.params.userId });
   if (!card) next(new ApiError("Invalid ID or card does not exist"));
   res.status(201).json({
     status: "success",
@@ -130,6 +138,8 @@ const cardCheck = (card) => {
   return;
 };
 
+// const cardTypeCheck = (card) => {};
+
 const deductMax = async (transaction, card) => {
   card.balance = card.balance - process.env.MAX_BALANCE_DEDUCT;
   card.save();
@@ -162,14 +172,19 @@ const editTransaction = async (
     }
     return stop.number < firstStop && stop.number >= lastStop;
   });
-  // console.log(userRoute);
+  console.log("UserROUTEE=", route.stops);
 
   const totalDistance = userRoute
     .map((item) => item.distance)
     .reduce((prev, curr) => prev + curr, 0);
   // console.log(totalDistance);
+  let amount = (totalDistance / 1000) * process.env.STD_FARE_PER_KM;
 
-  const amount = (totalDistance / 1000) * process.env.STD_FARE_PER_KM;
+  if (card.cardType === "Student") {
+    amount = amount - amount * 0.1;
+  } else if (card.cardType === "Senior") {
+    amount = amount - amount * 0.15;
+  }
 
   card.balance = card.balance - amount;
   card.save();

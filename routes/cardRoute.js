@@ -20,4 +20,5 @@ router.post("/firstTap", authController.initialTap);
 router.post("/secondTap", authController.finalTap);
 
 router.post("/loadBalance", cardController.loadBalance);
+router.get("/user/:userId", cardController.getCardFromUser);
 module.exports = router;

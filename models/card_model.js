@@ -32,15 +32,16 @@ const cardSchema = new mongoose.Schema(
   }
 );
 
-//Transaction Virtual Property
-// cardSchema.virtual("balanceUpdated").get(function () {
-//   return +this.balance.toFixed(1);
-// });
-
 cardSchema.virtual("transactions", {
   ref: "Transaction",
   foreignField: "card",
   localField: "uuid",
+});
+
+cardSchema.pre("save", async function (next) {
+  if (!this.isModified("balance")) return next();
+  this.balance = this.balance.toFixed(2);
+  next();
 });
 
 module.exports = mongoose.model("Card", cardSchema);

@@ -20,7 +20,6 @@ exports.getAllPayments = catchAsync(async (req, res) => {
 });
 
 exports.getPaymentsFromCard = catchAsync(async (req, res, next) => {
-  console.log(req.params);
   const payments = await Payment.find({ transaction: req.params.id });
   if (!payments) new ApiError("Invalid ID or card does not exist");
   res.status(201).json({

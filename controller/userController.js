@@ -9,8 +9,6 @@ exports.deleteUser = factoryController.deleteOne(User);
 exports.toggleActive = factoryController.toggleActive(User);
 exports.createUser = async (req, res) => {
   try {
-    console.log(req.body);
-
     const newUser = await User.create({
       name: req.body.name,
       address: req.body.address,
@@ -40,7 +38,6 @@ exports.createUser = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
   try {
-    console.log(req.params.id);
     await User.findByIdAndDelete(req.params.id);
     await Card.findOneAndDelete({ user: req.params.id });
     res.status(204).json({
