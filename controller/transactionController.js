@@ -96,7 +96,7 @@ exports.getTransactionPerMonth = async (req, res) => {
     // ? [22,40,50,78....] = >
 
     const condition = {
-      createdAt: { $gte: new Date(2022, 0, 1), $lte: new Date(2022, 11, 1) },
+      createdAt: { $gte: new Date(2022, 0, 1), $lte: new Date(2022, 12, 1) },
     };
 
     const transactions = await Transaction.find(condition);

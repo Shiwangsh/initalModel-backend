@@ -8,7 +8,7 @@ exports.getAll = (Model) =>
     if (req.query.search)
       filter = { name: { $regex: req.query.search, $options: "i" } };
     if (req.params.cardId) filter = { card: req.params.cardId };
-    console.log(filter);
+    // console.log(filter);
     const features = new APIFeatures(Model.find(filter), req.query)
       .filter()
       .sort();
@@ -70,14 +70,14 @@ exports.getOne = (Model, popOptions) =>
 
 exports.deleteOne = (Model) =>
   catchAsync(async (req, res, next) => {
-    const doc = await Model.find(req.params.id);
+    const doc = await Model.findById(req.params.id);
 
     if (!doc) {
       return next(new ApiError("No doc found with that ID", 404));
     }
 
     res.status(200).json({
-      status: "success",
+      status: "❗❗❗❗❗❗❗❗❗",
       data: "delete bad!(Remove route later)",
     });
   });

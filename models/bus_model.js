@@ -17,6 +17,9 @@ const busSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Route",
     },
+
+    latitude: Number,
+    longitude: Number,
   },
   {
     toJSON: { virtuals: true },

@@ -4,7 +4,7 @@ const smartController = require("../controller/smartRouteTest");
 
 // router.use(authController.protect);
 
-router.route("/").get(smartController.getAllRoutes);
+// router.route("/").get(smartController.getAllRoutes);
 router.route("/").post(smartController.getSpecificRoute);
 
 module.exports = router;
