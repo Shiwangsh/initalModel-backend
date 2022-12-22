@@ -16,10 +16,16 @@ const busSchema = new mongoose.Schema(
     route: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Route",
+      required: [true, "A vehicle must be associated with a route"],
     },
 
     latitude: Number,
     longitude: Number,
+    direction: {
+      type: String,
+      enum: ["UpDown", "DownUp"],
+      required: [true, "A vehicle must have direction"],
+    },
   },
   {
     toJSON: { virtuals: true },

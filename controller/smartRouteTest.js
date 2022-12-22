@@ -28,15 +28,22 @@ exports.getSpecificRoute = catchAsync(async (req, res) => {
 
   if (findSingleRoute.length === 1) {
     const userRoute = findSingleRoute;
-    const userStops = stopsForSingleRoute(userRoute, startStop, endStop);
-    const buses = await getBuses(userRoute[0]._id);
+    const stopsAndBuses = await stopsAndBusesForSingleRoute(
+      userRoute,
+      startStop,
+      endStop
+    );
+    // const userStops = stopsAndBuses[0];
+    // const buses = stopsAndBuses[1];
+
+    // const buses = await getBuses(userRoute[0]._id);
 
     res.status(201).json({
       status: "success",
       result: userRoute.length,
-      userStops,
+      userStops: stopsAndBuses[0],
+      buses: stopsAndBuses[1],
       userRoute,
-      buses,
     });
   } else if (findSingleRoute.length === 2) {
     (ranNum = () => {
@@ -55,13 +62,19 @@ exports.getSpecificRoute = catchAsync(async (req, res) => {
     })();
     // Selects one of the route on random (**Return less trafic route in future**)
     const userRoute = [findSingleRoute[0]];
-    console.log(userRoute);
-    const userStops = stopsForSingleRoute(userRoute, startStop, endStop);
+    const stopsAndBuses = await stopsAndBusesForSingleRoute(
+      userRoute,
+      startStop,
+      endStop
+    );
+    // const userStops = stopsAndBuses[0];
+    // const buses = stopsAndBuses[1];
 
     res.status(201).json({
       status: "success",
       result: userRoute.length,
-      userStops,
+      userStops: stopsAndBuses[0],
+      buses: stopsAndBuses[1],
       userRoute,
     });
   } else {
@@ -80,27 +93,37 @@ exports.getSpecificRoute = catchAsync(async (req, res) => {
 
     // console.log("User route=", userRoute);
 
-    const userStops = stopsForDoubleRoute(route1, route2, startStop, endStop);
+    const userStopsAndBuses = await stopsandBusesForDoubleRoute(
+      route1,
+      route2,
+      startStop,
+      endStop
+    );
+    console.log(">>>>>>>>>>>>>", userStopsAndBuses);
+
     res.status(201).json({
       status: "success",
       result: userRoute.length,
-      userStops,
+      userStops: userStopsAndBuses[0],
+      buses: userStopsAndBuses[1],
       userRoute,
     });
   }
 });
-const getBuses = async (routeID) => {
+const getBuses = async (routeID, direction) => {
   /*
    *Query Buses based on the route
    *Send buses with only relative to user's path or direction
    */
-  const buses = await Bus.find().select("latitude longitude regNum");
+  const buses = await Bus.find({ route: routeID, direction: direction }).select(
+    "latitude longitude regNum direction"
+  );
   return buses;
 };
 
 // Find users stops and path of direction
 
-const stopsForSingleRoute = (userRoute, startStop, endStop) => {
+const stopsAndBusesForSingleRoute = async (userRoute, startStop, endStop) => {
   let initialStopNumber, finalStopNumber;
   (() => {
     for (let i = 0; i < userRoute[0].stops.length; i++) {
@@ -121,15 +144,27 @@ const stopsForSingleRoute = (userRoute, startStop, endStop) => {
     }
     return stop.number <= initialStopNumber && stop.number >= finalStopNumber;
   });
+  // Return stops respective to passenger's direction
+  if (initialStopNumber < finalStopNumber) {
+    const buses = await getBuses(userRoute[0]._id, "UpDown");
+    return [requiredStops, buses];
+  } else {
+    const buses = await getBuses(userRoute[0]._id, "DownUp");
 
-  if (initialStopNumber < finalStopNumber) return requiredStops;
-  return requiredStops.reverse();
+    return [requiredStops.reverse(), buses];
+  }
 };
 
-const stopsForDoubleRoute = (route1, route2, startStop, endStop) => {
+const stopsandBusesForDoubleRoute = async (
+  route1,
+  route2,
+  startStop,
+  endStop
+) => {
   let initialRouteStopNumbers = [];
   let secondRouteStopNumbers = [];
   let userStops = [];
+  let buses = [];
   let dropStop;
 
   (() => {
@@ -148,12 +183,13 @@ const stopsForDoubleRoute = (route1, route2, startStop, endStop) => {
     return initialRouteStopNumbers, secondRouteStopNumbers;
   })();
 
+  // The joining (common) stops in both routes
   const joiningStops = route1.stops.filter((stop) => {
     return route2.stops.some((stop2) => {
       return stop.name === stop2.name;
     });
   });
-
+  // Drop stop based on the user's direction
   if (initialRouteStopNumbers[0] >= joiningStops[0].number) {
     joiningStops.reverse();
     dropStop = joiningStops[0];
@@ -164,6 +200,7 @@ const stopsForDoubleRoute = (route1, route2, startStop, endStop) => {
   console.log("JOINING STOPS>>>>", joiningStops);
   console.log("DROP STOP>>>>", dropStop);
 
+  // Stops travelled by user in both routes (startStop->>dropStop / dropStop->>endStop)
   (() => {
     for (let i = 0; i < route1.stops.length; i++) {
       if (route1.stops[i].name === dropStop.name) {
@@ -182,6 +219,7 @@ const stopsForDoubleRoute = (route1, route2, startStop, endStop) => {
 
   console.log(initialRouteStopNumbers, secondRouteStopNumbers);
 
+  // Returns stops for first route based on the user's direction
   const userStopsForRoute1 = route1.stops.filter(function (stop) {
     if (initialRouteStopNumbers[0] < initialRouteStopNumbers[1]) {
       return (
@@ -195,6 +233,7 @@ const stopsForDoubleRoute = (route1, route2, startStop, endStop) => {
     );
   });
 
+  // Returns stops for second route based on the user's stops
   const userStopsForRoute2 = route2.stops.filter(function (stop) {
     if (secondRouteStopNumbers[0] < secondRouteStopNumbers[1]) {
       return (
@@ -208,14 +247,22 @@ const stopsForDoubleRoute = (route1, route2, startStop, endStop) => {
     );
   });
   // reverse if first stop greater (change direction)
-  if (initialRouteStopNumbers[0] > initialRouteStopNumbers[1])
+  if (initialRouteStopNumbers[0] > initialRouteStopNumbers[1]) {
     userStopsForRoute1.reverse();
-  if (secondRouteStopNumbers[0] > secondRouteStopNumbers[1])
+    buses.unshift(await getBuses(route1._id, "DownUp"));
+  } else {
+    buses.unshift(await getBuses(route1._id, "UpDown"));
+  }
+  if (secondRouteStopNumbers[0] > secondRouteStopNumbers[1]) {
     userStopsForRoute2.reverse();
+    buses.unshift(await getBuses(route2._id, "DownUp"));
+  } else {
+    buses.unshift(await getBuses(route2._id, "UpDown"));
+  }
 
   userStops.push(userStopsForRoute1, userStopsForRoute2);
   console.log(userStops);
-  return userStops;
+  return [userStops, buses];
 };
 
 //  const lat1 = 27.696735657019087;

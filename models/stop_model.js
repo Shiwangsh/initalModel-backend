@@ -5,21 +5,12 @@ const stopSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, "A stop must have a name"],
+      unique: true,
     },
-    stopNumber: {
-      type: Number,
-      required: [true, "A stop must have a number"],
-    },
-    distance: {
-      type: Number,
-      required: [true, "A stop must have a distance"],
-    },
-    description: {
-      type: String,
-      trim: true,
-    },
+    latitude: Number,
+    longitude: Number,
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.module("Stop", stopSchema);
+module.exports = mongoose.model("Stop", stopSchema);

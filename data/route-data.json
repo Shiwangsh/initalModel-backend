@@ -504,15 +504,14 @@
 
 
 {
-    "routeName":"Lagankhel To Gongabu Buspark",
-   
-     "stops": [
+  "routeName": "Lagankhel To Gongabu Buspark",
+  "stops": [
     {
       "name": "Lagankhel",
       "number": 1,
-      "distance":1200,
-      "latitude":27.66706662829485, 
-      "longitude": 85.32300195060783
+      "distance": 1200,
+      "latitude": 27.666926389206196,
+      "longitude": 85.32295279220207
     },
     {
       "name": "Jawalakhel",
@@ -525,91 +524,265 @@
       "name": "Pulchowk",
       "number": 3,
       "distance": 1300,
-      "latitude": 27.68830072374016, 
-      "longitude": 85.23895288812132
+      "latitude": 27.681049632693604,
+      "longitude": 85.31742848629175
     },
     {
       "name": "Kupondole",
       "number": 4,
       "distance": 1400,
-      "latitude": 27.687027059095428, 
-      "longitude": 85.25129910690033
+      "latitude": 27.68759173445066,
+      "longitude": 85.3167566506742
     },
     {
-      "name": "Tripureshword",
+      "name": "Tripureshwor",
       "number": 5,
       "distance": 1200,
-      "latitude": 27.68710720129244, 
-      "longitude": 85.26502164472518
+      "latitude": 27.69502863492135,
+      "longitude": 85.31401830769084
     },
     {
       "name": "NAC",
       "number": 6,
-      "distance": 710,
-      "latitude": 27.691478131639467,
-      "longitude":  85.27561209773513 
+      "distance": 773,
+      "latitude": 27.702467493132218,
+      "longitude": 85.31357284229802
     },
     {
-      "name": "Jamal",
+      "name": "Kanti Path Bus Stop",
       "number": 7,
-      "distance": 2700,
-      "latitude": 27.69395770935525, 
-      "longitude": 85.28144816776809
+      "distance": 1440,
+      "latitude": 27.709363569744117,
+      "longitude": 85.31460281056873
     },
-      {
+    {
       "name": "Lazimpat",
       "number": 8,
-      "distance": 1300,
-      "latitude": 27.697249808014796, 
-      "longitude": 85.30456198491775 
-    },  {
-      "name": "Lainchaur",
-      "number": 9,
-      "distance": 1200,
-      "latitude": 27.69502863492135, 
-      "longitude": 85.31401830769084
-    },  {
+      "distance": 913,
+      "latitude": 27.718110025312548,
+      "longitude": 85.31710329337783
+    },
+    {
       "name": "Panipokhari",
+      "number": 9,
+      "distance": 931,
+      "latitude": 27.729935478818692,
+      "longitude": 85.32512517923298
+    },
+    {
+      "name": "Maharajgunj",
       "number": 10,
-      "distance": 1400,
-      "latitude": 27.70601245375911, 
-      "longitude": 85.31416642221421
-    },  {
-      "name": "Teaching Hospital",
-      "number": 11,
-      "distance":1300,
-      "latitude": 27.699235890015593, 
-      "longitude":  85.31789670362485
-    },  {
+      "distance": 884,
+      "latitude": 27.734018408320544,
+      "longitude": 85.32987788545657
+    },
+    {
       "name": "Narayan Gopal Chowk",
-      "number": 12,
-      "distance": 1900,
-      "latitude": 27.69381389816561, 
-      "longitude":85.3213689179371
-    },  {
+      "number": 11,
+      "distance": 600,
+      "latitude": 27.739983229178243,
+      "longitude": 85.33709908068654
+    },
+    {
       "name": "Basundhara",
-      "number": 13,
-      "distance": 700,
-      "latitude": 27.68769131828746, 
-      "longitude": 85.33892336067593
-    },  {
+      "number": 12,
+      "distance": 1000,
+      "latitude": 27.741842801431932,
+      "longitude": 85.33341363244867
+    },
+    {
       "name": "Chauki",
-      "number": 14,
-      "distance": 1500,
-      "latitude":27.686336215930957,
-      "longitude":  85.34574693515998 
-    },  {
+      "number": 13,
+      "distance": 750,
+      "latitude": 27.73803360688135,
+      "longitude": 85.32524444279446
+    },
+    {
       "name": "Samakhusi",
+      "number": 14,
+      "distance": 350,
+      "latitude": 27.73520690267061,
+      "longitude": 85.31811312383931
+    },
+    {
+      "name": "Gongabu Chowk",
       "number": 15,
-      "distance":800,
-      "latitude":27.69536470988985, 
-      "longitude":  85.35493860552134
-    },  {
-      "name": "Gongabu Buspark",
+      "distance": 550,
+      "latitude": 27.734890681905124,
+      "longitude": 85.31456627809035
+    },
+    {
+      "name": "Nanya Bus Park",
       "number": 16,
-      "distance": 0,
-      "latitude": 27.701145154244518, 
-      "longitude": 85.35335215804403 
+      "distance": 550,
+      "latitude": 27.73500007649896,
+      "longitude": 85.30923716318787
+    }
+  ]
+}
+
+{
+    "routeName":"Ratna Park to Sanga",
+   
+     "stops": [
+    {
+      "name": "Ratna Park",
+      "number": 1,
+      "distance":1200,
+      "latitude":27.706786014523324, 
+      "longitude": 85.31474567551174
+    },
+    {
+      "name": "Babarmahal",
+      "number": 2,
+      "distance": 1200,
+      "latitude": 27.696817993358668, 
+      "longitude": 85.32106896808025
+    },
+    {
+      "name": "Maitighar",
+      "number": 3,
+      "distance": 1300,
+      "latitude": 27.693913397989103, 
+      "longitude": 85.32132260659783
+    },
+    {
+      "name": "New Baneshowr",
+      "number": 4,
+      "distance": 1400,
+      "latitude": 27.688583895348433, 
+      "longitude": 85.33470146515208
+    },
+     {
+      "name": "Minbhawan",
+      "number": 5,
+      "distance": 1400,
+      "latitude": 27.687709870090917, 
+      "longitude": 85.33897154186849 
+    },
+    {
+      "name": "Tinkune",
+      "number": 6,
+      "distance": 1200,
+      "latitude": 27.68620308523427, 
+      "longitude": 85.34569948895775 
+    },
+     {
+      "name": "Koteshwore",
+      "number": 7,
+      "distance": 773,
+      "latitude": 27.68002760346848, 
+      "longitude": 85.34967763042627 
+    },
+    {
+      "name": "Jadibuti",
+      "number": 8,
+      "distance": 913,
+      "latitude": 27.67561505886479, 
+      "longitude": 85.35141471651919
+    },
+    {
+      "name": "Lokanthali",
+      "number": 9,
+      "distance": 931,
+      "latitude": 27.674958157085428,
+      "longitude":  85.35973693268755
+    },
+    {
+      "name": "Gatthaghar",
+      "number": 10,
+      "distance": 884,
+      "latitude": 27.67409120328765, 
+      "longitude": 85.37325860864891
+    },
+     {
+      "name": "Chardobato",
+      "number": 11,
+      "distance": 884,
+      "latitude": 27.673621600440455, 
+      "longitude":85.3798664866008 
+    },
+   {
+      "name": "Thimi",
+      "number": 12,
+      "distance": 600,
+     "latitude": 27.67351323026339, 
+      "longitude": 85.38633160156246
+    },  
+     {
+      "name": "Radhe Radhe",
+      "number": 13,
+      "distance": 600,
+     "latitude": 27.674705296261912,
+      "longitude":  85.39777301969718 
+    }, 
+    {
+      "name": "Srijananagar",
+      "number": 14,
+      "distance": 1000,
+      "latitude": 27.67309914132703, 
+      "longitude": 85.40401748236258
+    },  {
+      "name": "Sallaghari",
+      "number": 15,
+      "distance": 750,
+     "latitude": 27.670095347312376, 
+      "longitude": 85.41084881512924
+    },  {
+      "name": "Suryabinayak",
+      "number": 16,
+      "distance":350,
+       "latitude": 27.665843611460197, 
+      "longitude": 85.42478534522742
+    }, 
+ {
+      "name": "Aadarsha Bus Stop",
+      "number": 17,
+      "distance":350,
+       "latitude": 27.66650005999805, 
+      "longitude": 85.43349958179182 
+    },
+    
+     {
+      "name": "Jagati",
+      "number": 18,
+      "distance": 550,
+      "latitude": 27.66653410300218, 
+      "longitude": 85.43742980238369
+    },   
+    {
+      "name": "Bansbari",
+      "number": 19,
+      "distance": 550,
+      "latitude": 27.65872398742796, 
+      "longitude": 85.45268061421731
+    },  
+    {
+      "name": "Nalin Chowk",
+      "number": 20,
+      "distance": 550,
+      "latitude": 27.65404076032773, 
+      "longitude": 85.45697158722881 
+    },
+     {
+      "name": "Milan Chowk",
+      "number": 21,
+      "distance": 550,
+      "latitude": 27.653418211622164, 
+      "longitude": 85.45984324017948
+    },
+     {
+      "name": "Palanse",
+      "number": 22,
+      "distance": 550,
+      "latitude": 27.643819891470745, 
+      "longitude": 85.46541544066667
+    } ,{
+      "name": "Sanga",
+      "number": 23,
+      "distance": 550,
+      "latitude": 27.641843527429064,
+      "longitude":  85.47760679773037
     }
   ]
 }

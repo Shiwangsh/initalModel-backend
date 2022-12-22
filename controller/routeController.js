@@ -5,6 +5,27 @@ exports.getAllRoutes = factoryController.getAll(Route);
 exports.getRoute = factoryController.getOne(Route);
 exports.createRoute = factoryController.createOne(Route);
 
+/*
+*IMPLEMENT STOP MODEL and NEW ROUTE REFERENCE STOP
+// const Route = require("../models/testRoute_modal");
+
+// const catchAsync = require("../utils/catchAsync");
+// const ApiError = require("../error/ApiError");
+*/
+// exports.getRoute = catchAsync(async (req, res, next) => {
+//   let query = Route.findById(req.params.id).populate("stops.details");
+//   const doc = await query;
+//   if (!doc) {
+//     return next(new ApiError("No doc found with that ID", 404));
+//   }
+//   res.status(200).json({
+//     status: "success",
+//     data: {
+//       data: doc,
+//     },
+//   });
+// });
+
 // exports.getAllRoutes = catchAsync(async (req, res, next) => {
 //   const search = req.query.search || "";
 //   console.log(req.query);
