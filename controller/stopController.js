@@ -9,8 +9,6 @@ exports.updateStop = factoryController.updateOne(Stop);
 
 exports.getStopsBySerach = catchAsync(async (req, res) => {
   const search = req.query.search;
-  //   console.log(req.query);
-  //   console.log(search);
   if (search) {
     const stops = await Stop.find({ name: { $regex: search, $options: "i" } });
     res.status(200).json({

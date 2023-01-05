@@ -4,7 +4,14 @@ const Bus = require("../models/bus_model");
 const catchAsync = require("../utils/catchAsync");
 const factoryController = require("./factoryController");
 
-// exports.getAllRoutes = factoryController.getAll(Route);
+const calculateFair = (userStops) => {
+  const totalDistance = userStops
+    .map((item) => item.distance)
+    .reduce((prev, curr) => prev + curr, 0);
+  // console.log(totalDistance);
+  let amount = (totalDistance / 1000) * process.env.STD_FARE_PER_KM;
+  return amount;
+};
 
 exports.getSpecificRoute = catchAsync(async (req, res) => {
   const { startStop, endStop } = req.body;
@@ -33,13 +40,11 @@ exports.getSpecificRoute = catchAsync(async (req, res) => {
       startStop,
       endStop
     );
-    // const userStops = stopsAndBuses[0];
-    // const buses = stopsAndBuses[1];
-
-    // const buses = await getBuses(userRoute[0]._id);
+    const userFair = calculateFair(stopsAndBuses[0]).toFixed(2);
 
     res.status(201).json({
       status: "success",
+      userFair,
       result: userRoute.length,
       userStops: stopsAndBuses[0],
       buses: stopsAndBuses[1],
@@ -67,12 +72,12 @@ exports.getSpecificRoute = catchAsync(async (req, res) => {
       startStop,
       endStop
     );
-    // const userStops = stopsAndBuses[0];
-    // const buses = stopsAndBuses[1];
+    const userFair = calculateFair(stopsAndBuses[0]).toFixed(2);
 
     res.status(201).json({
       status: "success",
       result: userRoute.length,
+      userFair,
       userStops: stopsAndBuses[0],
       buses: stopsAndBuses[1],
       userRoute,
@@ -99,11 +104,16 @@ exports.getSpecificRoute = catchAsync(async (req, res) => {
       startStop,
       endStop
     );
-    console.log(">>>>>>>>>>>>>", userStopsAndBuses);
+    // console.log(">>>>>>>>>>>>>", userStopsAndBuses[0][0]);
+    const userFairOne = calculateFair(userStopsAndBuses[0][0]);
+    const userFairTwo = calculateFair(userStopsAndBuses[0][1]);
+
+    const userFairTotal = (userFairOne + userFairTwo).toFixed(2);
 
     res.status(201).json({
       status: "success",
       result: userRoute.length,
+      userFair: userFairTotal,
       userStops: userStopsAndBuses[0],
       buses: userStopsAndBuses[1],
       userRoute,
